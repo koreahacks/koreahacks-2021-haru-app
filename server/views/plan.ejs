@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+    <head>
+        <link rel='stylesheet' type='text/css' href='/main.css'>
+        
+    </head>
+
+    <body>
+        
+        <form>
+
+            <label for='userId'>유저아이디: </label>
+            <input name='userId' id='userId' placeholder='유저아이디'/>
+
+            <label for='title'>목표: </label>
+            <input name='title' id='title' placeholder='목표'/>
+
+            비밀<input type='radio' name='isLocked'  value='true'/>
+            오픈<input type='radio' name='isLocked'  value='false'/>
+
+            <button type='submit' class='add'>추가</button></br></br>
+        </form> 
+        
+        <table id='users'>
+            <thead>
+                <tr>
+                    <th>_id</th>
+                    <th>userId</th>
+                    <th>title</th>
+                    <th>isLocked</th>
+                    <th>isFinished</th>
+                    <th>createdAt</th>
+                    <th>like_people</th>
+                </tr> 
+            </thead>
+            <tbody>
+                <% plans.forEach(el=>{ %>
+                    <tr>
+                        <td> <%= el._id %> </td>
+                        <td> <%= el.userId %> </td>
+                        <td> <%= el.title %> </td>
+                        <td> <%= el.isLocked %> </td>
+                        <td> <%= el.isFinished %> </td>
+                        <td> <%= el.createdAt %> </td>
+                        <td>  
+                            <% el.like_people.forEach(eel=>{ %>
+                                <%= eel %>
+                            <% }) %>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+    </body>
+
+
+    
+    <script>
+
+
+        document.querySelector('.add').addEventListener('click',(e)=>{
+            e.preventDefault();
+            var title=document.getElementsByName('title')[0].value;
+            var isLocked; 
+            if(document.getElementsByName('isLocked')[0].checked){
+                isLocked=document.getElementsByName('isLocked')[0].value;
+            }
+          
+            var userId=document.getElementsByName('userId')[0].value;
+            var xhr=new XMLHttpRequest();
+            xhr.onload=()=>{
+                location.reload();
+            }
+            xhr.open('POST','/admin/addPlan');
+            xhr.setRequestHeader('Content-Type','application/json');
+            xhr.send(JSON.stringify({title:title,isLocked:isLocked,userId:userId}));
+
+
+        });
+
+
+    </script>
+
+
+
+
+
+
+
+</html>

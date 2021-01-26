@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+    <head>
+        <link rel='stylesheet' type='text/css' href='/main.css'>
+              
+    </head>
+
+    <body>
+       
+        <form>
+
+            <label for='email'>이메일: </label>
+            <input name='email' id='email' placeholder='이메일'/>
+
+            <label for='password'>비밀번호: </label>
+            <input name='password' id='password' placeholder='비밀번호'/>
+
+            
+            <label for='displayName'>이름: </label>
+            <input name='displayName' id='displayName' placeholder='이름'/>
+
+            <button type='submit' class='add'>추가</button></br></br>
+        </form>
+
+        <form>
+
+            <label for='id1'>from: </label>
+            <input name='id1' id='id1' placeholder='아이디'/>
+
+            <label for='id2'>to: </label>
+            <input name='id2' id='id2' placeholder='아이디'/>
+
+            follow <input name='follow' type='radio' value='true'/>
+            unfollow <input name='follow' type='radio' value='false'/>
+
+            <button type='submit' class='add1'>추가</button></br></br>
+        </form> 
+
+        <form>
+            <label for='id3'>아이디</label>
+            <input name='id3' id='id3' placeholder='아이디'/>
+            사진 등록 <input type='file' name='img'/>
+            <button type='submit' class='add2'>추가</button></br></br>
+        </form>
+
+        <table id='users'>
+            <thead>
+                <tr>
+                    <th>_id</th>
+                    <th>email</th>
+                    <th>displayName</th>
+                    <th>profileImage</th>
+                    <th>followed_people</th>
+                    <th>following_people</th>
+                    <th>latitude</th>
+                    <th>longtitude</th>
+                </tr> 
+            </thead>
+            <tbody>
+                <% users.forEach(el=>{ %>
+                    <tr>
+                        <td> <%= el._id %> </td>
+                        <td> <%= el.email %> </td>
+                        <td> <%= el.displayName %> </td>
+                        <td> <img src="<%= el.profileImage %>" width='50' height='50' onerror="this.style.display='none'" /> </td>
+                        <td> 
+                            <% el.followed_people.forEach(ell=>{ %>
+                                <%= ell %>
+                            <% }) %>  
+                        </td>
+                        <td> 
+                            <% el.following_people.forEach(ell=>{ %>
+                                <%= ell %>
+                            <% }) %>  
+                        </td>
+                        <td><%= el.latitude %></td>
+                        <td><%= el.longtitude %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+    </body>
+     
+    <script> 
+       
+
+        document.querySelector('.add2').addEventListener('click',(e)=>{
+            e.preventDefault();
+            var id3=document.getElementsByName('id3')[0].value;
+            var img=document.getElementsByName('img')[0].files[0];
+            var formData=new FormData();
+            formData.append('id3',id3);
+            formData.append('img',img);
+            var xhr=new XMLHttpRequest();
+            xhr.onload=()=>{
+                location.reload();
+            }
+            xhr.open('POST','/admin/addPic');
+            xhr.send(formData);
+        });
+
+        document.querySelector('.add').addEventListener('click',(e)=>{
+            e.preventDefault();
+            var email=document.getElementsByName('email')[0].value;
+            var password=document.getElementsByName('password')[0].value;
+            var displayName=document.getElementsByName('displayName')[0].value;
+            var xhr=new XMLHttpRequest();
+            xhr.onload=()=>{
+                location.reload();
+            }
+            xhr.open('POST','/admin/addUser');
+            xhr.setRequestHeader('Content-Type','application/json');
+            xhr.send(JSON.stringify({email:email,password:password,displayName:displayName}));
+        });
+
+        document.querySelector('.add1').addEventListener('click',(e)=>{
+            e.preventDefault();
+            var id1=document.getElementsByName('id1')[0].value;
+            var id2=document.getElementsByName('id2')[0].value;
+            var follow;
+            if(document.getElementsByName('follow')[0].checked){
+                follow=document.getElementsByName('follow')[0].value;
+            }
+
+            var xhr=new XMLHttpRequest();
+            xhr.onload=()=>{
+                location.reload();
+            }
+            xhr.open('POST','/admin/follow');
+            xhr.setRequestHeader('Content-Type','application/json');
+            xhr.send(JSON.stringify({id1:id1,id2:id2,follow:follow}));
+        });
+
+
+    </script> 
+
+
+
+
+
+
+
+</html>
