@@ -20,7 +20,6 @@
 [![haru_app](https://img.youtube.com/vi/AKE0fjI3_mQ/0.jpg)](https://www.youtube.com/watch?v=AKE0fjI3_mQ)
 
 ## 시그니처 메뉴 : Haru(하루)  
-  <a href="#"><img src=https://user-images.githubusercontent.com/76839243/104104209-0aaf0800-52ea-11eb-92c4-6edd37125436.jpg width="350" height="350"></a>   
   
 :small_orange_diamond: "이런 분들께 추천드려요 :+1:"
 > - [x] 코로나로 집에있는 시간이 많아졌다.
