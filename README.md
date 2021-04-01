@@ -15,9 +15,9 @@
 * Product Manager  
 -원성영
 
-## 동작영상 
+## 구동영상 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AKE0fjI3_mQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![haru_app](https://img.youtube.com/vi/AKE0fjI3_mQ/0.jpg)](https://www.youtube.com/watch?v=AKE0fjI3_mQ)
 
 ## 시그니처 메뉴 : Haru(하루)  
   <a href="#"><img src=https://user-images.githubusercontent.com/76839243/104104209-0aaf0800-52ea-11eb-92c4-6edd37125436.jpg width="350" height="350"></a>   
