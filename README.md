@@ -6,7 +6,7 @@
 -박현종
 
 * Front-End developer  
--이은비   :star2:  
+-이은비   
 -정이든
 
 * Designer  
@@ -15,9 +15,16 @@
 * Product Manager  
 -원성영
 
+## 기술스택
+* React native for hybrid app
+* Redux for Network Optimization
+* Socket.io for real time map service
+
+
 ## 구동영상 
 
 [![haru_app](https://img.youtube.com/vi/AKE0fjI3_mQ/0.jpg)](https://www.youtube.com/watch?v=AKE0fjI3_mQ)
+
 
 ## 시그니처 메뉴 : Haru(하루)  
   
