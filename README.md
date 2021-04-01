@@ -17,7 +17,7 @@
 
 ## 기술스택
 * React native for hybrid app
-* Redux for Network Optimization
+* Redux for global state management
 * Socket.io for real time map service
 
 
