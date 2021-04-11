@@ -25,7 +25,3 @@
 
 [![haru_app](https://img.youtube.com/vi/AKE0fjI3_mQ/0.jpg)](https://www.youtube.com/watch?v=AKE0fjI3_mQ)
 
-
-## Awards
-
-![베스트개발상](https://github.com/2donny/koreahacks-2021-haru-app/blob/master/award.png)
